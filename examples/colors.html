@@ -4,14 +4,101 @@
     <meta charset="utf-8">
     <title>Example Scene</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe/dist/aframe-master.min.js"></script>
+    
   </head>
   <body>
     <a-scene debug="true">
-      <a-entity id="hsl-green" geometry="primitive: box" material="color:hsl(120, 100%, 75%)" position="-4 1 0"></a-entity>
-      <a-entity id="rgb-yellow" geometry="primitive: box" material="color:rgb(255, 255, 0)" position="-2 1 0"></a-entity>
-      <a-entity id="hex3-red" geometry="primitive: box" material="color:#f00" position="0 1 0"></a-entity>
+      <a-assets>
+        <img id="floor" src="https://ipfs.io/ipfs/QmRTyNwk4CuM6ttA3Q83LGw3irAe1b2F2LVfF1AUagdLMR?filename=floor.png">
+        <a-asset-item id="title" src="https://ipfs.io/ipfs/QmQXUxvGB5pAasMeLjcCYiZwHeoGdwbe9ZnnxK5GPam1HA?filename=title3.gltf" opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="modelb" src="https://ipfs.io/ipfs/Qmd8V4p5WWbA8qtvuhBok4PBRZ2SouFvybSwdJhyWncFxL?filename=12.gltf"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="d4" src="https://ipfs.io/ipfs/QmRUWRcYL27UKBDFPNCG4Pfov9tD2qmUD3yvTZvZWCoBrP?filename=d4.gltf"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="d6" src="https://ipfs.io/ipfs/QmdSwm6wviyzL9Vr4UD6mzBz7xqnPkUZpWUuFzF1FZU3TA?filename=d6.gltf"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="d8" src="https://ipfs.io/ipfs/QmRGCrWZaHxga7i28FpdbTz6yRzCu3nmkjcTTYdzcS7Bfi?filename=d8.gltf" opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="d12" src="https://ipfs.io/ipfs/QmYD9iHs7kSwXtJs6ZqhuX8EUE1u4o92oMpsm2c6tFKnbF?filename=d12.gltf"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="d20" src="https://ipfs.io/ipfs/QmfWxCH7EijjDTBqq8j98WCNGD6nayq3HPMME7Zmma3wmC?filename=d20.gltf"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="super" src="https://ipfs.io/ipfs/QmVPJGkDjfoPjYhByeQVtDkbhmLfvtgwqMtde8y6swydQW?filename=untitled.gltf"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="chick" src="https://ipfs.io/ipfs/QmdcnDyrYzqfRoEs5zQqwziqkiZEHe5vbUzPF4ZNNFeAte?filename=chicken.glb"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="egg" src="https://ipfs.io/ipfs/QmRvn9MXA4ZjdMfqCiHrx1EvFXFxov5SdrRzeFYRAi9BQp?filename=egg.glb"  opacity="0.5">
+        </a-asset-item>
+        <a-asset-item id="earth" src="https://ipfs.io/ipfs/QmZYz7LczgHETptepWxPz7z9vZ3Vf1mR51S9jUZJWPULqv?filename=earth.gltf"  opacity="0.5">
+        </a-asset-item>
+        <img id="sky" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg">
+      </a-assets>
+      
+<!--Player Rig-->
+<a-entity id="rig" movement-controls position="0 0 0">
+  <a-entity wasd-controls="fly: false" camera look-controls wasd-controls fov=60 position="0 0 0"></a-entity>
+  <a-entity oculus-touch-controls="hand: left"></a-entity>
+  <a-entity oculus-touch-controls="hand: right"></a-entity>
+</a-entity>
+<!--Player Rig End-->
+
+
+
+
+      <a-circle src="#floor" radius="20" rotation="-90 0 0" position="-1 -1 -4" opacity="0.5" material="src:#floor; repeat: 70 70; transparent: true;"></a-circle>
+      <a-triangle color="#CCC" vertex-c="1 0 1" rotation="-90 0 0"></a-triangle>
+      <a-triangle color="#FFFFFF"w rotation="-90 0 0" position="0.17 0.07ww -8.9" scale="14 14 14"></a-triangle>
+      <a-circle src="#sky" radius="10" rotation="-90 0 0" position="-0.9 -0.9 1.1" opacity="0.5" material="src:#sky; repeat: 70 70; transparent: true;"></a-circle>
+      <a-circle src="#sky" radius="5" rotation="-90 0 0" position="-20 0 0" opacity="0.5" material="src:#sky; repeat: 70 70; transparent: true;"></a-circle>
+      <a-plane position="0 0 -6" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" metalness="0.5" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg"></a-plane>
+      <a-plane material="src:#floor; repeat: 70 70; transparent: true;" height="50" width="50" rotation="-90 0 0" position="0 -10 0"></a-plane>
+      
+      <a-sphere position="0 1.25 -5" radius="1.28"  opacity="0.5" color="#fcffcf" wireframe="true" emissiveIntensity="1"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" wireframe="true"></a-cylinder>
+      <a-sphere position="0 1.25 -5" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" awposition="0 1.25 -5" radius="1.25"  opacity="0.4" color="#EF2D5E" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg" emissiveIntensity="1"></a-sphere>
+
+
+      <a-sky material="src:#sky;"></a-sky>
+      
+      <a-entity htmlembed position="10 10 10">
+        <h1>An Example</h1>
+        <p>Lorem ipsum dolor sdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+          ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssit amet, consectetur adipiscing elit.</p>
+          <img src="myImages.png" alt="image">
+       
+      </a-entity> 
+            <a-entity id="model" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" rotation="-0 0 0" gltf-model="#title" color="ffffff" opacity="0.5" position="0.1 -0.17194 -3.3" scale="1 1 1"></a-entity>
+            <a-entity id="model" rotation="-0 0 0" gltf-model="#modelb" color="ffffff" position="0 0 -5" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity id="model" rotation="-0 0 0" gltf-model="#d4" color="ffffff" position="0 0 -5" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity id="model" rotation="-0 0 0"  gltf-model="#d6" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg" position="2 2 -1" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity id="model" rotation="-0 0 0" gltf-model="#d8" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg" wireframe="true" position="5 5 5" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity id="model" rotation="-0 0 0" gltf-model="#d12" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg" wireframe="true" position="0.6 0.3 -3.3" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity id="model" rotation="-0 0 0" gltf-model="#d20" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg" wireframe="true" position="0.1 0.1 -3.3" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity id="model" rotation="-0 0 0" gltf-model="#earth" position="0.1 0.1 5" scale="10 10 10" ></a-entity>
+            <a-entity id="model" rotation="0 90 180" gltf-model="#super" position="0.1 2w -3.3" scale="0.1 0.1 0.1" ></a-entity>
+            <a-entity link="on: click; href: https://aframe-aincraft.glitch.me"></a-entity>
+
+            
+            <a-entity light="type: ambient; color: #BBB; intensity: 0.1"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+            <a-light type="point" color="white" intensity="1.5" position="0 0 0"></a-light>
+            <a-light type="point" color="green" intensity="1.5" position="0  0 -50"></a-light>
+            <a-light type="point" color="red" intensity="1.5" position="-50  0  0"></a-light>
+            <a-light type="point" color="purple" intensity="1.5" position="50  0  0"></a-light>
+      
+
+    <a-box position="-1 0.5 -3" rotation="0 45 0" src="https://ipfs.io/ipfs/QmNSdA9JKmgkgrZsdyxzZYopCs7x5MUWUXsyyzPvRnMAph?filename=colour%20pallet.jpg" ></a-box>
+    
+   
+    <a-torus color="#ffffff" position="0 0 -5" rotation="90 0 90" arc="900" emissiveIntensity="1" radius="100" wireframe="true" radius-tubular="50"  material="src:#sky; transparent: true;"></a-torus>
+  a
+      <a-entity id="hsl-green" geometry="primitive: box" material="color:hsl(120, 100%, 75%)" position="-4 2.00332 0"></a-entity>
+      <a-entity id="rgb-yellow" gltf-model="https://ipfs.io/ipfs/QmYD9iHs7kSwXtJs6ZqhuX8EUE1u4o92oMpsm2c6tFKnbF?filename=d12.gltf" geometry="primitive: box" material="color: #e7e73c" position="-2 1 0"></a-entity>
+      <a-entity id="hex3-red" scale="1 2.44222 1" geometry="primitive: box" material="color:#f00" position="0 0.53472 0"></a-entity>
       <a-entity id="hex6-red" geometry="primitive: box" material="color:#ff0000" position="2 1 0"></a-entity>
       <a-entity id="string-blue" geometry="primitive: box" material="color:blue" position="4 1 0"></a-entity>
+      <a-entity id="ste" geometry="primitive: box" material="color:green" position="4 2 0"></a-entity>
     </a-scene>
     <script src="../dist/aframe-inspector.js"></script>
   </body>
